@@ -1131,6 +1131,156 @@
              ║  2. 코스 내용에 맞게 수정
              ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
              ╚══════════════════════════════════════════════╝ -->
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/08-preview.html
+             ║  수업 맛보기 — 인스타그램 릴스 슬라이더
+             ╚══════════════════════════════════════════════╝ -->
+        <!-- Course Preview -->
+        <!-- Course Preview -->
+        <section class="py-16 px-0 relative z-10 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-5xl mx-auto">
+                <div class="px-5 mb-8 reveal">
+                    <p class="text-center text-brand text-xs font-bold uppercase tracking-widest mb-3">Course Preview</p>
+                    <h2 class="text-2xl font-black text-gray-900 text-center tracking-tight break-keep">수업 맛보기</h2>
+                    <p class="text-center text-gray-500 text-sm mt-2 break-keep">실제 강의 현장을 먼저 확인해보세요</p>
+                </div>
+
+                <!-- Slider -->
+                <div class="relative">
+                    <div id="reel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-2 no-scrollbar-reel">
+                        <!-- Reel 1 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DYeeqDrAFWO/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                        <!-- Reel 2 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DYHf3o9jWfu/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                        <!-- Reel 3 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DXWkt0qj-xr/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                        <!-- Reel 4 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DYeem_3FRwa/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                        <!-- Reel 5 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DXZJli-jSRT/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                        <!-- Reel 6 -->
+                        <div class="snap-center flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white">
+                            <iframe src="https://www.instagram.com/reel/DYMpe2rkxec/embed/"
+                                width="300" height="560"
+                                frameborder="0" scrolling="no"
+                                allowtransparency="true" loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex items-center justify-center gap-4 mt-5 px-5">
+                    <button id="reel-prev"
+                        class="w-10 h-10 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-brand hover:text-brand transition-colors shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+
+                    <div id="reel-dots" class="flex gap-2">
+                        <button class="reel-dot w-2 h-2 rounded-full bg-brand transition-all" data-index="0"></button>
+                        <button class="reel-dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="1"></button>
+                        <button class="reel-dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="2"></button>
+                        <button class="reel-dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="3"></button>
+                        <button class="reel-dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="4"></button>
+                        <button class="reel-dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="5"></button>
+                    </div>
+
+                    <button id="reel-next"
+                        class="w-10 h-10 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-brand hover:text-brand transition-colors shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <style>
+        .no-scrollbar-reel::-webkit-scrollbar { display: none; }
+        .no-scrollbar-reel { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+
+        <script>
+        (function() {
+            var track  = document.getElementById('reel-track');
+            var dots   = document.querySelectorAll('#reel-dots .reel-dot');
+            var prev   = document.getElementById('reel-prev');
+            var next   = document.getElementById('reel-next');
+            var cards  = track ? track.querySelectorAll('.snap-center') : [];
+            var current = 0;
+
+            function scrollTo(idx) {
+                if (idx < 0) idx = 0;
+                if (idx >= cards.length) idx = cards.length - 1;
+                current = idx;
+                cards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                updateDots(current);
+            }
+
+            function updateDots(active) {
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('bg-brand',   i === active);
+                    d.classList.toggle('bg-gray-200', i !== active);
+                    d.classList.toggle('w-4', i === active);
+                    d.classList.toggle('w-2', i !== active);
+                });
+            }
+
+            function getClosest() {
+                var trackLeft = track.getBoundingClientRect().left;
+                var minDist = Infinity, closest = 0;
+                cards.forEach(function(card, i) {
+                    var dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
+                    if (dist < minDist) { minDist = dist; closest = i; }
+                });
+                return closest;
+            }
+
+            if (track) {
+                track.addEventListener('scroll', function() {
+                    current = getClosest();
+                    updateDots(current);
+                }, { passive: true });
+            }
+            if (prev) prev.addEventListener('click', function() { scrollTo(current - 1); });
+            if (next) next.addEventListener('click', function() { scrollTo(current + 1); });
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() { scrollTo(parseInt(dot.dataset.index)); });
+            });
+        })();
+        </script>
 
         <!-- ╔══════════════════════════════════════════════╗
              ║  SNIPPET: snippets/06-risk-reversal.html
