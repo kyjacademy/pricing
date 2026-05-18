@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<!--
+=============================================
+  kyjacademy-landings MASTER TEMPLATE
+  새 코스: _template/ 복사 -> content.json + palette.json 수정 -> tokenize.py 실행
+=============================================
+-->
+
+<html lang="ko" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>당신의 가격은 틀렸습니다. - 장가 12기 | 김유진아카데미</title>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="당신의 가격은 틀렸습니다 장가 12기 | 김유진아카데미">
+    <meta property="og:description"
+        content="가격 인상이 두렵습니까? 이익률이 낮아 답답하십니까? 가격 전략 하나로 수익을 극대화하는 8주 실전 과정. 지금 바로 확인하세요.">
+    <meta property="og:image" content="./image/thumbnail.png">
+    <meta property="og:url" content="https://kyjacademy.github.io/pricing/">
+    <meta property="og:type" content="website">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3078582289199962');
+        fbq('track', 'PageView');
+        fbq('trackCustom', 'famous_pageview');  
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=3078582289199962&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            DEFAULT: '#b90e0a',
+                            light: '#fffafa',
+                            dark: '#1F1A16'
+                        },
+                        'royal-black': '#f9fafb',
+                        'dark-gray': '#ffffff',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 40s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+            /* word breaking fix */
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .red-glow {
+            box-shadow: 0 0 30px rgba(185, 14, 10, 0.3);
+        }
+
+        /* index base styles */
+        .text-gradient {
+            background: linear-gradient(to right, #b90e0a, #2e2a22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .shadow-glow {
+            box-shadow: 0 0 20px rgba(185, 14, 10, 0.4);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 relative leading-[1.6] tracking-[-0.03em]"><!-- Mobile App Container -->
+    <div class="max-w-[480px] mx-auto bg-white shadow-2xl min-h-screen relative overflow-x-hidden">
+
+        <!-- Sticky Header (From base) -->
+        <div class="fixed top-0 w-full max-w-[480px] mx-auto left-1/2 -translate-x-1/2 z-50">
+            <nav class="bg-white/90 backdrop-blur-md border-b border-gray-200 py-4">
+                <div class="container mx-auto px-5  flex justify-between items-center">
+                    <div class="text-gray-900 font-black text-xl tracking-tighter">장가</div>
+                    <button onclick="document.getElementById('enrollment').scrollIntoView()"
+                        class="bg-brand text-white px-5  py-2 text-sm font-bold rounded-full hover:bg-brand-dark transition-colors">
+                        수강신청
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Background glow -->
+        <div
+            class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand rounded-full mix-blend-multiply filter blur-[150px] opacity-10 pointer-events-none">
+        </div>
+        <div
+            class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-brand rounded-full mix-blend-multiply filter blur-[150px] opacity-5 pointer-events-none">
+        </div>
+
+        <!-- Hero / Hook -->
+        <section class="min-h-[90vh] flex items-center justify-center pt-32 pb-20 px-5  relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <span
+                    class="inline-block py-2 px-5 rounded-full border border-brand/30 text-brand text-xs  font-bold tracking-widest mb-6 bg-brand/5">당신의 가격은 틀렸습니다</span>
+                <h1 class="text-4xl   font-black mb-8 leading-[1.3] tracking-tighter break-keep">
+                    가격을 올렸는데<br><span class="text-brand">'싸다'고 착각하게</span><br>만드십시오.
+                </h1>
+                <p class="text-lg  text-gray-600 mb-8 leading-[1.8] max-w-3xl mx-auto break-keep">
+                    눈치 보며 벌이는 벼랑 끝 가격 경쟁은 끝났습니다.<br>
+                    <strong class="text-gray-900">메뉴 이름, 그릇, 메뉴판의 배치 순서를 살짝 비트는 것만으로</strong><br>
+                    단 한 명의 이탈 없이 객단가를 2배로 폭발시키는<br>
+                    현장 실전 기술을 풉니다.
+                </p>
+                <a href="#enrollment"
+                    class="inline-block bg-brand text-white text-lg  font-bold py-4  px-10  rounded-full hover:bg-brand-dark transition duration-300 shadow-glow animate-float transform hover:scale-105">
+                    장가 12기 신청하기
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Pricing -->
+        <section class="py-16 px-5 bg-brand-dark relative z-10 overflow-hidden">
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand rounded-full filter blur-[80px]"></div>
+            </div>
+            <div class="max-w-5xl mx-auto reveal relative z-10">
+                <p class="text-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Why Pricing Strategy</p>
+                <h2 class="text-2xl font-black text-white text-center mb-2 tracking-tight break-keep">가격은 단순한 숫자가 아닙니다</h2>
+                <p class="text-center text-gray-400 text-sm mb-10 break-keep">고객을 설득하는 치밀한 심리 전략입니다.</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-10">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-brand font-black text-lg mb-2">01</p>
+                        <h3 class="text-white font-bold text-sm mb-2 break-keep">시장을 장악하는 가격 전략</h3>
+                        <p class="text-gray-400 text-xs leading-[1.7] break-keep">수익률을 극대화하는 가격 책정법으로 브랜드 가치를 높이세요.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-brand font-black text-lg mb-2">02</p>
+                        <h3 class="text-white font-bold text-sm mb-2 break-keep">불황에도 살아남는 가격 전략</h3>
+                        <p class="text-gray-400 text-xs leading-[1.7] break-keep">경제 위기에도 흔들리지 않는 <br>실전 가격 정책.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-brand font-black text-lg mb-2">03</p>
+                        <h3 class="text-white font-bold text-sm mb-2 break-keep">검증된 실전 노하우</h3>
+                        <p class="text-gray-400 text-xs leading-[1.7] break-keep">현장에서 증명된 즉시 적용 가능한 가격 전략.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-brand font-black text-lg mb-2">04</p>
+                        <h3 class="text-white font-bold text-sm mb-2 break-keep">내 브랜드의 최적 가격 찾기</h3>
+                        <p class="text-gray-400 text-xs leading-[1.7] break-keep">고객 만족과 수익성을 동시에 잡는 가격 공식.</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <p class="text-center text-gray-400 text-xl font-bold uppercase tracking-widest mb-5">이 수업을 들으면</p>
+                    <div class="flex flex-col gap-3 w-fit mx-auto">
+                        <div class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <p class="text-white text-lg font-medium break-keep">매출을 2배 높이는 가격 전략 습득</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <p class="text-white text-lg font-medium break-keep">가격을 올려도 고객이 만족하는 법 배우기</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <p class="text-white text-lg font-medium break-keep">경쟁력을 높이는 실전 가격 책정 공식 공개</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/01-before-after-slider.html
+             ║  Before / After 성과 슬라이더 (매장 케이스 5개)
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/01-before-after-slider.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+
+                                                                                                                                <!-- Testimonial Slider -->
+        <section class="py-16 px-0 relative z-10 overflow-hidden bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="px-5 mb-8 reveal">
+                    <p class="text-center text-brand text-xs font-bold uppercase tracking-widest mb-3">Real Results</p>
+                    <h2 class="text-2xl font-black text-gray-900 text-center tracking-tight break-keep">전국 대표님들이 직접 전하는<br>가격 전략의 위력</h2>
+                </div>
+
+                <div class="relative">
+                    <div id="testimonial-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 no-scrollbar">
+
+                        <!-- 1: 아키아키 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%202기_장명욱_아키아키.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%202기_장명욱_아키아키.jpg" alt="아키아키 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🏆</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">장명욱 대표</p>
+                                        <p class="text-xs text-gray-400">아키아키 · 장가 2기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">최고 매출 3번 갱신</p>
+                                <p class="text-xs text-gray-500 mb-3">14년 장사 통틀어 처음</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"한 달 만에 14년 장사 동안 한 번도 넘보지 못한 금액을 <strong class='text-gray-900'>3번 갱신</strong>했습니다. 충성 고객이 원하는 걸 주면 답이 나옵니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 2: 차셰프덮밥 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%2010기_차민규_차셰프덮밥.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%2010기_차민규_차셰프덮밥.jpg" alt="차셰프덮밥 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🚀</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">차민규 대표</p>
+                                        <p class="text-xs text-gray-400">차셰프덮밥 · 장가 10기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">배달 월 2억 4천</p>
+                                <p class="text-xs text-gray-500 mb-3">7월 배달매출 + 쿠팡이츠 1등</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"<strong class='text-gray-900'>7월 배달매출만 2억 4천</strong> 했습니다. <br>평단가가 올라가니 확실히 매출이 올라가네요!"</p>
+                            </div>
+                        </div>
+
+                        <!-- 3: 아빠의양식당 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%2011기_허승희_아빠의양식당.png" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%2011기_허승희_아빠의양식당.png" alt="아빠의양식당 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🍽️</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">허승희 대표</p>
+                                        <p class="text-xs text-gray-400">아빠의양식당 · 장가 11기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">저녁만 영업, 월 1억 돌파</p>
+                                <p class="text-xs text-gray-500 mb-3">코로나 이후 처음</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"코로나 이후 <strong class='text-gray-900'>넘지 못할 것 같던 1억</strong>을<br>저녁만 영업해서 넘겼습니다. 자신감이 생겼습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 4: 딱조아막창 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/대구장가%201기_최태일_딱조아막창.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/대구장가%201기_최태일_딱조아막창.jpg" alt="딱조아막창 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">💰</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">최태일 대표</p>
+                                        <p class="text-xs text-gray-400">딱조아막창 · 대구장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">월 +200만원</p>
+                                <p class="text-xs text-gray-500 mb-3">막창 1,000원 인상 후</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"3개월 동안 불만 제기한 손님은
+                                <br><strong class='text-gray-900'>단 한 분</strong>뿐이었습니다.
+                                <br>두려움이 사라지는 순간 장사가 달라집니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 5: 로벤 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%207기_박승용_로벤.png" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%207기_박승용_로벤.png" alt="로벤 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">⚡</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">박승용 대표</p>
+                                        <p class="text-xs text-gray-400">로벤 · 장가 7기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">매출 2배 상승</p>
+                                <p class="text-xs text-gray-500 mb-3">아직 적용 전인데도</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"수업 듣고 <strong class='text-gray-900'>매출이 2배</strong> 올랐습니다.
+                                <br>아직 배운 것들 거의 적용 안 한 매장인데 제대로 실시하면 더 높아질 것 같습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 6: 남원추어탕 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%206기_심서후_남원추어탕.png" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%206기_심서후_남원추어탕.png" alt="남원추어탕 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🌿</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">심서후 대표</p>
+                                        <p class="text-xs text-gray-400">남원추어탕 · 장가 6기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">전월 대비 +50% 성장</p>
+                                <p class="text-xs text-gray-500 mb-3">다 못 따라했는데도</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"사부님 하라는 거 다 하지도 못했는데 <strong class='text-gray-900'>3월 대비<br>50% 매출 성장</strong>했습니다.<br>어디까지 성장할지 저도 궁금해집니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 7: 부천집 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_임동훈_부천집.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_임동훈_부천집.jpg" alt="부천집 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">📈</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">임동훈 대표</p>
+                                        <p class="text-xs text-gray-400">부천집 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">연 +1,623만원 순이익</p>
+                                <p class="text-xs text-gray-500 mb-3">코로나로 매출 20% 빠졌는데도</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"매출은 20% 이상 빠졌는데 <strong class='text-gray-900'>순이익이 더 생겼습니다.</strong> 손님 수가 줄어도 이익이 커지는 구조를 처음으로 만들었습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 8: 제비원식당 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/제비원식당.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/제비원식당.jpg" alt="제비원식당 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🎯</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">박진현 대표</p>
+                                        <p class="text-xs text-gray-400">제비원식당 · 장가 9기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">네이밍 변경만으로 가격저항 제로</p>
+                                <p class="text-xs text-gray-500 mb-3">메뉴판 개편 후</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"섞어찜에서 사선해물찜으로 네이밍을 바꾸면서 가격을 올렸는데 <strong class='text-gray-900'>가격저항 전혀 없이 주문이
+                                <br>엄청 들어옵니다.</strong>"</p>
+                            </div>
+                        </div>
+
+                        <!-- 9: 로얄생고기 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%207기_박재형_로얄생고기.png" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%207기_박재형_로얄생고기.png" alt="로얄생고기 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🥩</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">박재형 대표</p>
+                                        <p class="text-xs text-gray-400">로얄생고기 · 장가 7기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">역대 최고매출 달성</p>
+                                <p class="text-xs text-gray-500 mb-3">가격 올린 후</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"가격 올리고 매출이 올라가니 <strong class='text-gray-900'>장사가 재미있어지네요.</strong> 사부님이 차려주신 밥상에 실천이라는 숟가락만 얹었을 뿐입니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 10: 와인주막차차 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%2010기_민경호_와인주막차차.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%2010기_민경호_와인주막차차.jpg" alt="와인주막차차 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🍷</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">민경호 대표</p>
+                                        <p class="text-xs text-gray-400">와인주막차차 · 장가 10기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">비수기 7월 월매출 1억</p>
+                                <p class="text-xs text-gray-500 mb-3">개업 이래 최초 달성</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"평범한 7월에 <strong class='text-gray-900'>개업 이래 처음으로 월 1억</strong>을 넘겼습니다.<br>이 기세를 이어가보겠습니다!"</p>
+                            </div>
+                        </div>
+
+                        <!-- 11: 천생산오리사냥 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%202기_안남옥_천생산오리사냥.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%202기_안남옥_천생산오리사냥.jpg" alt="천생산오리사냥 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🦆</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">안남옥 대표</p>
+                                        <p class="text-xs text-gray-400">천생산오리사냥 · 장가 2기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">말복 매출 작년 대비 2배</p>
+                                <p class="text-xs text-gray-500 mb-3">34년 기록 갱신</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"34년 말복매출을 시원하게 갈아엎어버렸습니다. <strong class='text-gray-900'>작년 대비 2배로 초과 달성.</strong> 가격의 판도라를 열어주신 사부님께 무한한 감사를 드립니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 12: 나눌터 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_최연규_나눌터.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_최연규_나눌터.jpg" alt="나눌터 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🍜</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">최연규 대표</p>
+                                        <p class="text-xs text-gray-400">나눌터 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">신메뉴 출시 후 손님 반응 폭발</p>
+                                <p class="text-xs text-gray-500 mb-3">메뉴판 재정비 후</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"세트 메뉴에 2천원 추가 시 흑임자탕으로 변경하는 요소를 만들었더니 <strong class='text-gray-900'>손님들 반응이 매우 좋습니다.</strong>"</p>
+                            </div>
+                        </div>
+
+                        <!-- 13: 꿀꿀진순대국 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_조경민_꿀꿀진순대국.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_조경민_꿀꿀진순대국.jpg" alt="꿀꿀진순대국 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🏅</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">조경민 대표</p>
+                                        <p class="text-xs text-gray-400">꿀꿀진순대국 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">비수기 6월, 오픈 이래 최고매출</p>
+                                <p class="text-xs text-gray-500 mb-3">무더위·코로나 속에서도</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"코로나가 다시 퍼지는 6월 비수기에 <strong class='text-gray-900'>오픈 이래<br>최고 매출을 달성했습니다.<br></strong> 장사는 가격이다! 이번달 몸으로 느꼈습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 14: 라비떼 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_유은정_라비떼.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_유은정_라비떼.jpg" alt="라비떼 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🍝</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">유은정 대표</p>
+                                        <p class="text-xs text-gray-400">라비떼 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">테이블 11개로 목표 매출 달성</p>
+                                <p class="text-xs text-gray-500 mb-3">이탈리안 레스토랑</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"할 수 있을만큼의 매출은 해봤다 생각했었는데<br>제 생각이 틀렸었네요. 알려주시는 방법대로 따라가니 <strong class='text-gray-900'>마음속의 숫자를 달성</strong>할 수 있었습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 15: 달쭈꾸미 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_정승욱_달쭈꾸미.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_정승욱_달쭈꾸미.jpg" alt="달쭈꾸미 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🌶️</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">정승욱 대표</p>
+                                        <p class="text-xs text-gray-400">달쭈꾸미 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">100원으로 5,000원 추가 매출</p>
+                                <p class="text-xs text-gray-500 mb-3">100원의 위력</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"1,800원 깎아주는 것보다 <strong class='text-gray-900'>100원에 사는 법</strong>을 알게 되었습니다. 고객은 무턱대고 싼 것을 원하지 않는다는 것을 깨달았습니다."</p>
+                            </div>
+                        </div>
+
+                        <!-- 16: 삼천포맛집정서방 -->
+                        <div class="snap-center flex-shrink-0 w-[80vw] max-w-[320px] glass-card rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                            <div class="relative aspect-square overflow-hidden border-b border-gray-100">
+                                <img src="image/장가%201기_정현_삼천포맛집정서방.jpg" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-125 blur-md opacity-50">
+                                <img src="image/장가%201기_정현_삼천포맛집정서방.jpg" alt="삼천포맛집정서방 수강후기" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-xl">🎉</span>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-900">정현 대표</p>
+                                        <p class="text-xs text-gray-400">삼천포맛집정서방 · 장가 1기</p>
+                                    </div>
+                                </div>
+                                <p class="text-brand font-black text-lg mb-1 break-keep">매출 70% 상승</p>
+                                <p class="text-xs text-gray-500 mb-3">수강 후 단기간 내</p>
+                                <p class="text-gray-600 text-sm leading-[1.8] break-keep">"사부님 덕분에 장가 듣고 <strong class='text-gray-900'>매출 70% 상승했습니다.</strong> 열심히 매진해서 100% 달성하도록 하겠습니다!"</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation: 버튼 + 도트 -->
+                    <div class="flex items-center justify-center gap-3 mt-5 px-5">
+                        <button id="testimonial-prev"
+                            class="w-10 h-10 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-brand hover:text-brand transition-colors shadow-sm flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+
+                        <div id="testimonial-dots" class="flex gap-1 flex-wrap justify-center max-w-[200px]">
+                            <button class="dot w-2 h-2 rounded-full bg-brand transition-all" data-index="0"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="1"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="2"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="3"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="4"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="5"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="6"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="7"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="8"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="9"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="10"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="11"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="12"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="13"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="14"></button>
+                            <button class="dot w-2 h-2 rounded-full bg-gray-200 transition-all" data-index="15"></button>
+                        </div>
+
+                        <button id="testimonial-next"
+                            class="w-10 h-10 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-brand hover:text-brand transition-colors shadow-sm flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+
+        <script>
+        (function() {
+            var track  = document.getElementById('testimonial-track');
+            var dots   = document.querySelectorAll('#testimonial-dots .dot');
+            var prev   = document.getElementById('testimonial-prev');
+            var next   = document.getElementById('testimonial-next');
+            var cards  = track ? track.querySelectorAll('.snap-center') : [];
+            var current = 0;
+
+            function scrollToCard(idx) {
+                if (idx < 0) idx = 0;
+                if (idx >= cards.length) idx = cards.length - 1;
+                current = idx;
+                cards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                updateDots(current);
+            }
+
+            function updateDots(active) {
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('bg-brand',    i === active);
+                    d.classList.toggle('bg-gray-200', i !== active);
+                    d.classList.toggle('w-4', i === active);
+                    d.classList.toggle('w-2', i !== active);
+                });
+            }
+
+            function getClosest() {
+                var trackLeft = track.getBoundingClientRect().left;
+                var minDist = Infinity, closest = 0;
+                cards.forEach(function(card, i) {
+                    var dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
+                    if (dist < minDist) { minDist = dist; closest = i; }
+                });
+                return closest;
+            }
+
+            if (track) {
+                track.addEventListener('scroll', function() {
+                    current = getClosest();
+                    updateDots(current);
+                }, { passive: true });
+            }
+            if (prev) prev.addEventListener('click', function() { scrollToCard(current - 1); });
+            if (next) next.addEventListener('click', function() { scrollToCard(current + 1); });
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    scrollToCard(parseInt(dot.dataset.index));
+                });
+            });
+        })();
+        </script>
+
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/02-authority.html
+             ║  Authority — 강사 신뢰도·매장 사진
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/02-authority.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+
+<!-- Authority -->
+        <section class="py-20 px-5 bg-gray-50/80 relative z-10">
+            <div class="max-w-5xl mx-auto reveal">
+
+                <!-- 프로필 헤더 -->
+                <div class="text-center mb-10">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-gray-900 shadow-xl mb-6">
+                        <img src="image/INSTRUCTOR_PROFILE_IMAGE.jpg" alt="김유진 강사"
+                            onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 160 160%22%3E%3Crect width=%22160%22 height=%22160%22 fill=%22%23f3f4f6%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%236b7280%22 font-family=%22sans-serif%22 font-size=%2214%22%3E(프로필 사진)%3C/text%3E%3C/svg%3E';"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="inline-block border-2 border-gray-900 p-1.5 mb-4">
+                        <span class="block bg-gray-900 text-white px-4 py-1 font-bold text-xs uppercase tracking-wider">The Instructor</span>
+                    </div>
+                    <h2 class="text-4xl font-black mb-1 tracking-tight">김유진</h2>
+                    <p class="text-base font-bold text-gray-500">자영업 1타 강사 / 김유진아카데미</p>
+                </div>
+
+                <!-- 인용구 + 소개 -->
+                <div class="glass-card p-7 rounded-3xl mb-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-brand rounded-full mix-blend-multiply filter blur-[80px] opacity-10"></div>
+                    <blockquote class="text-lg font-bold leading-[1.9] text-gray-800 text-center mb-6 break-keep">
+                        "가격은 숫자가 아닙니다.<br>
+                        <span class="text-brand">가치와 격이 만나는 지점</span>입니다.<br>
+                        당신이 만드는 것은 특별합니다.<br>
+                        그러니, <span class="text-brand">당당하게 가격을 요구</span>하세요."
+                    </blockquote>
+                    <div class="text-gray-600 text-sm leading-[1.8] break-keep text-center space-y-3">
+                        <p>무언가를 팔아야 하는 모든 분들을 위한 수업입니다.</p>
+                        <p>남들과 비교될 수 없는 <strong class="text-gray-900">특별한 가치</strong>를 만들고<br>
+                        그 가치만큼 자신 있게 가격을 책정하는 법을 배웁니다.</p>
+                        <p class="font-bold text-gray-900">"가격이 곧 당신의 전략입니다."</p>
+                    </div>
+                </div>
+
+                <!-- 이력 -->
+                <div class="glass-card p-6 rounded-2xl mb-6">
+                    <div class="space-y-2.5 text-sm font-medium text-gray-700">
+                        <p class="text-gray-500">MBC PD 출신 (성균관대 신문방송학과)</p>
+                        <p class="text-brand font-bold text-base">3,000개 브랜드 매니지먼트</p>
+                        <p class="text-brand font-bold text-base">연간 총매출 2조 원 창출</p>
+                        <p>現 신한 SOHO 교육 자문</p>
+                        <p>現 LG 유플러스 DX 솔루션 아카데미 고문</p>
+                        <p>現 국방부 국민소통위원회 전문위원</p>
+                        <p class="font-bold text-gray-900">대한민국 최대 자영업사관학교 김유진아카데미 대표강사</p>
+                    </div>
+                </div>
+
+                <!-- 신뢰 증거 2개 -->
+                <div class="grid gap-4 mb-8">
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-brand">
+                        <h3 class="text-brand font-bold text-base mb-1.5">현장 검증 완료</h3>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">3,000개 브랜드 가격 전략 자문, 연간 총매출 2조 원 창출.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-brand">
+                        <h3 class="text-brand font-bold text-base mb-1.5">베스트셀러 저자</h3>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">『당신의 가격은 틀렸습니다』 저자 직강 — 책의 이론을 현장 실습으로 체득합니다.</p>
+                    </div>
+                </div>
+
+                <!-- 저서 -->
+                <div class="glass-card p-6 rounded-3xl">
+                    <p class="text-xs font-bold text-gray-400 mb-5 uppercase tracking-widest text-center">Best Seller</p>
+                    <div class="flex flex-wrap gap-3 justify-center items-end">
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                            <img src="image/book_1.jpg" alt="한국형 장사의 신"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.05s">
+                            <img src="image/book_2.jpg" alt="장사는 전략이다"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.1s">
+                            <img src="image/book_3.jpg" alt="장사 이제는 콘텐츠다"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.15s">
+                            <img src="image/book_4.jpg" alt="당신의 가격은 틀렸습니다"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.2s">
+                            <img src="image/book_5.jpg" alt="장사는 전략이다 RED"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.25s">
+                            <img src="image/book_7.jpg" alt="당신의 가격은 틀렸습니다(중문)"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-28 bg-gray-200 shadow-md rounded-sm overflow-hidden hover:-translate-y-2 transition-transform duration-300" style="transition-delay:0.3s">
+                            <img src="image/book_8.jpg" alt="장사 이제는 콘텐츠다(중문)"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <!-- 신간 강조 -->
+                        <div class="w-24 h-32 shadow-xl rounded-sm overflow-hidden hover:-translate-y-4 transition-transform duration-300 border-2 border-brand relative z-10" style="transition-delay:0.35s">
+                            <div class="absolute top-0 right-0 bg-brand text-white text-[10px] px-2 py-0.5 font-bold z-10">NEW</div>
+                            <img src="image/book_6.jpg" alt="페이머스"
+                                onerror="this.style.display='none'"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/03-paradigm-shift.html
+             ║  Paradigm Shift — 왜 인생 강의인가 (3-card)
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/03-paradigm-shift.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+
+<!-- Paradigm Shift -->
+        <section class="py-20 px-5 relative z-10">
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="text-center mb-14">
+                    <h2 class="text-3xl font-black mb-4 tracking-tight break-keep">수업 들은 대표님들이<br><span class="text-brand">'인생 강의'</span>라 부르는 이유</h2>
+                    <p class="text-base text-gray-600 break-keep">가격을 올리는 게 아닙니다. <strong class="text-gray-900">고객의 뇌를 설계하는 겁니다.</strong></p>
+                </div>
+
+                <div class="grid gap-6">
+                    <!-- Card 1: 디코이 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-7 pb-4">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">🎯</span>
+                                </div>
+                                <h3 class="text-lg font-black text-gray-900 break-keep">안 팔리는 메뉴가 돈을 번다</h3>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 flex flex-col gap-2">
+                            <div class="rounded-xl overflow-hidden relative" style="aspect-ratio:4/3">
+                                <img src="image/%EC%A0%9C%EB%B9%84%EC%9B%90%EC%8B%9D%EB%8B%B9_before.jpg" alt="제비원식당 before" class="w-full h-full object-cover" loading="lazy">
+                                <span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-0.5 rounded-full">Before</span>
+                            </div>
+                            <div class="rounded-xl overflow-hidden relative" style="aspect-ratio:4/3">
+                                <img src="image/%EC%A0%9C%EB%B9%84%EC%9B%90%EC%8B%9D%EB%8B%B9_after.jpg" alt="제비원식당 after" class="w-full h-full object-cover" loading="lazy">
+                                <span class="absolute bottom-2 left-2 bg-brand/80 text-white text-xs font-bold px-2 py-0.5 rounded-full">After</span>
+                            </div>
+                            <div class="rounded-xl overflow-hidden" style="aspect-ratio:4/3">
+                                <img src="image/%EC%A0%9C%EB%B9%84%EC%9B%90%EC%8B%9D%EB%8B%B9.jpg" alt="제비원식당" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="px-7 pb-7">
+                            <div class="bg-brand/5 border-l-4 border-brand rounded-r-xl p-4 mb-4">
+                                <p class="text-sm font-bold text-brand break-keep">"메뉴판 구조가 스스로 고객을 설득해 돈을 쓸어 담는구나!"</p>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-[1.8] break-keep">모든 메뉴가 잘 팔려야 한다는 고정관념을 버리세요.
+                            <br>주력 메뉴 옆에 일부러 <strong class="text-gray-900">'디코이'</strong>를 심어두면 고객은 말 한마디 없어도 스스로 가장 비싼 시그니처를 선택합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: 앵커링 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-7 pb-4">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">⚓</span>
+                                </div>
+                                <h3 class="text-lg font-black text-gray-900 break-keep">가격 올리기 전, 더 비싼 걸 먼저 보여줘라</h3>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 flex flex-col gap-2">
+                            <div class="rounded-xl overflow-hidden relative" style="aspect-ratio:2/1">
+                                <img src="image/%EC%A7%84%EB%A9%B4%EB%AA%A9_1.jpg" alt="진면목 before" class="w-full h-full object-cover" loading="lazy">
+                                <span class="absolute bottom-2 left-2 bg-black/60 text-white text-xs font-bold px-2 py-0.5 rounded-full">Before</span>
+                            </div>
+                            <div class="rounded-xl overflow-hidden relative" style="aspect-ratio:2/1">
+                                <img src="image/%EC%A7%84%EB%A9%B4%EB%AA%A9_3.jpg" alt="진면목 after" class="w-full h-full object-cover" loading="lazy">
+                                <span class="absolute bottom-2 left-2 bg-brand/80 text-white text-xs font-bold px-2 py-0.5 rounded-full">After</span>
+                            </div>
+                        </div>
+                        <div class="px-7 pb-7">
+                            <div class="bg-brand/5 border-l-4 border-brand rounded-r-xl p-4 mb-4">
+                                <p class="text-sm font-bold text-brand break-keep">"9,000원으로 올렸더니 오히려 손님들이 '이 집은 싸다'고 합니다"</p>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-[1.8] break-keep">가격은 절대값이 아닙니다. 메뉴판 맨 위에 <strong class="text-gray-900">송혜교 메뉴</strong>를 배치하는 순간, 고객의 뇌에 기준점이 박힙니다. <br>그 아래 주력 메뉴는 자연스럽게 '합리적 선택'이 됩니다.
+                                <br>가격 저항 없이 객단가를 올리는 가장 빠른 공식입니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: 공짜의 죄악 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="p-7 pb-4">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-xl">🚫</span>
+                                </div>
+                                <h3 class="text-lg font-black text-gray-900 break-keep">공짜로 준 것에 고객은 고마워하지 않는다</h3>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="rounded-xl overflow-hidden aspect-square">
+                                <img src="image/%EC%96%B4%EC%8D%B8%EB%A1%9C%EC%A6%88.jpg" alt="어썸로즈" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="px-7 pb-7">
+                            <div class="bg-brand/5 border-l-4 border-brand rounded-r-xl p-4 mb-4">
+                                <p class="text-sm font-bold text-brand break-keep">"가격표를 붙이고 조건부로 드렸더니 리뷰와 재방문이 폭발했습니다"</p>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-[1.8] break-keep">오늘도 계란 프라이, 찌개, 사리를 공짜로 퍼주고 있지 않으신가요?
+                            <br><strong class="text-gray-900">가격표 없는 서비스는 가치가 없습니다.</strong> 5,000원 가격표를 먼저 붙이고 공짜가 아닌 '혜택'이 될 때 고객은 비로소 감동받고 단골이 됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/04-roi.html
+             ║  ROI — 교육비를 회수하는 확실한 공식
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/04-roi.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+<!-- Curriculum -->
+        <section class="py-20  px-5  relative z-10">
+            <div class="max-w-5xl mx-auto reveal">
+                <h2 class="text-3xl  font-black mb-12  text-center tracking-tight break-keep">이익을 극대화하는
+                    <br> 8주 가격 전략 로드맵
+                </h2>
+                <div class="grid  gap-4 ">
+                    <!-- 1강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">1강</span>
+                            <h3 class="text-lg  font-bold text-gray-900">아주 특별한 가격 전략</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>시장 침투 전략, 300원의 신비</li>
+                            <li>마법 같은 100원 전략</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">2강</span>
+                            <h3 class="text-lg  font-bold text-gray-900">정보와 가격의 상관관계</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>500원의 위력, 1000원의 행복</li>
+                            <li>성가비, MUST BUY PRODUCT</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">3강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">가격 = 가치 + 격</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>가격을 극대화 하는 'C.L.A.S.S'</li>
+                            <li>패키지 가격 구성</li>
+                            <li>할인의 신</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">4강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">송혜교 메뉴 만들기</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>초고가 메뉴 세팅, 이종간 결합</li>
+                            <li>메디치 효과</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">5강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">가격 심리학</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>정보 가공 전략, 가격 스펙트럼</li>
+                            <li>3:1 만족화 이론, 이익 방정식</li>
+                        </ul>
+                    </div>
+
+                    <!-- 6강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">6강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">가격 포지셔닝</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>디코이 전략</li>
+                            <li>리베이트 전략</li>
+                            <li>가격 극대화 전략</li>
+                        </ul>
+                    </div>
+
+                    <!-- 7강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">7강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">최적의 가격을 찾아라</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>디코이 전략 II, 수리 인지학</li>
+                            <li>프라이스 앵커링</li>
+                        </ul>
+                    </div>
+
+                    <!-- 8강 -->
+                    <div class="glass-card p-6  rounded-2xl border-l-4 border-brand">
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="text-brand font-black text-xl ">8강</span>
+                            <h3 class="text-lg  font-bold text-gray-900 break-keep">가격표 작성 &amp; 현장 실습</h3>
+                        </div>
+                        <ul class="text-gray-600 text-base space-y-2 pl-4 list-disc marker:text-brand break-keep">
+                            <li>효과적인 가격표 작성 및 현장 실습</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-12  glass-card p-6  rounded-3xl bg-gradient-to-r from-brand/5 to-transparent border-brand/20 border">
+                    <div class="grid  gap-8 ">
+                        <div>
+                            <h4 class="text-xl  font-bold mb-4  flex items-center gap-2 text-gray-900">
+                                <span class="text-brand">✓</span> 이런 분께 추천합니다
+                            </h4>
+                            <ul class="space-y-3 text-base text-gray-600 break-keep">
+                                <li>• 원가 상승으로 가격 인상이 불가피한 상황</li>
+                                <li>• 이익률이 낮아 답답한 상태</li>
+                                <li>• 추가 투자 없이 수익률을 높이고 싶음</li>
+                                <li>• 이익을 극대화할 방법이 필요함</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl  font-bold mb-4  flex items-center gap-2 text-gray-900">
+                                <span class="text-brand">🎯</span> 교육 포인트
+                            </h4>
+                            <ul class="space-y-3 text-base text-gray-600 break-keep">
+                                <li>• 이론이 아닌 가격 전략 실습 중심</li>
+                                <li>• 심리 기반 가격 설계 완벽 이해</li>
+                                <li>• 낭비되는 할인 구조 철저히 개선</li>
+                                <li>• 즉시 적용 가능한 나만의 가격표 완성</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+                                                                                                                                <!-- ROI -->
+        <section class="py-20 px-5 bg-gray-50/80 relative z-10 border-t border-b border-gray-100">
+            <div class="max-w-5xl mx-auto reveal">
+                <h2 class="text-3xl font-bold mb-3 text-center tracking-tight break-keep">교육비를 회수하는 확실한 공식</h2>
+                <p class="text-base text-center text-gray-600 mb-12 break-keep">숫자가 증명합니다. <strong class="text-brand">실제 수강생 대표님들의 이야기입니다.</strong></p>
+
+                <div class="grid gap-6">
+                    <!-- Case 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="border-b border-gray-200">
+                            <img src="image/%EC%9E%A5%EA%B0%80%201%EA%B8%B0_%EC%9E%84%EB%8F%99%ED%9B%88_%EB%B6%80%EC%B2%9C%EC%A7%91.jpg" alt="임동훈 대표 카카오톡 후기" class="w-full h-auto">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl flex-shrink-0">📉</div>
+                                <div>
+                                    <h3 class="font-black text-lg text-gray-900 mb-1 break-keep">매출이 <span class="text-brand">20% 빠졌는데</span> 순이익은 오히려 늘었습니다</h3>
+                                    <p class="text-xs text-gray-400 mb-3">임동훈 대표 · 부천집</p>
+                                    <p class="text-gray-600 text-sm leading-[1.8] break-keep">장가 수업 후 가격을 올렸는데 코로나가 덮쳤습니다.
+                                    <br>매출은 20% 이상 빠졌지만 순이익은 월 <strong class="text-gray-900">135만원이 더</strong> 생겼습니다. 연간으로 계산하니 <strong class="text-brand">1,623만원</strong>. 손님 수가 줄어도 이익이 커지는 구조를 처음으로 만들었습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="border-b border-gray-200">
+                            <img src="image/%EB%8C%80%EA%B5%AC%EC%9E%A5%EA%B0%80%201%EA%B8%B0_%EC%B5%9C%ED%83%9C%EC%9D%BC_%EB%94%B1%EC%A1%B0%EC%95%84%EB%A7%89%EC%B0%BD.jpg" alt="최태일 대표 카카오톡 후기" class="w-full h-auto">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl flex-shrink-0">💰</div>
+                                <div>
+                                    <h3 class="font-black text-lg text-gray-900 mb-1 break-keep">막창 <span class="text-brand">1,000원</span> 올렸더니 월수입이 200만원 늘었습니다</h3>
+                                    <p class="text-xs text-gray-400 mb-3">최태일 대표 · 딱조아막창</p>
+                                    <p class="text-gray-600 text-sm leading-[1.8] break-keep">인상 후 3개월 동안 불만을 제기한 손님은 <strong class="text-gray-900">단 한 명</strong>뿐이었습니다. 가격을 올리면 손님이 떠날 것 같았지만 올리고 나니 고객은 떠나지 않았습니다.
+                                    <br>두려움이 사라지는 순간 장사가 달라집니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <div class="border-b border-gray-200">
+                            <img src="image/%EC%9E%A5%EA%B0%80%2010%EA%B8%B0_%EB%AF%BC%EA%B2%BD%ED%98%B8_%EC%99%80%EC%9D%B8%EC%A3%BC%EB%A7%89%EC%B0%A8%EC%B0%A8.jpg" alt="민경호 대표 카카오톡 후기" class="w-full h-auto">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl flex-shrink-0">🏆</div>
+                                <div>
+                                    <h3 class="font-black text-lg text-gray-900 mb-1 break-keep">비수기 7월, 개업 이래 <span class="text-brand">최초 월 매출 1억</span> 달성</h3>
+                                    <p class="text-xs text-gray-400 mb-3">민경호 대표 · 와인주막차차</p>
+                                    <p class="text-gray-600 text-sm leading-[1.8] break-keep">연말연시가 아닌 평범한 7월에 개업 이래 처음으로 월 매출 1억을 넘겼습니다.
+                                    <br>가격 구조를 바꾸자 비수기도 더 이상 두렵지 않습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/05-social-proof.html
+             ║  Social Proof — 수강생 상세 케이스 3개
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/05-social-proof.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+
+        <!-- ╔══════════════════════════════════════════════╗
+             ║  SNIPPET: snippets/06-risk-reversal.html
+             ║  Risk Reversal — 실행의 두려움을 없애는 보장
+             ╠══════════════════════════════════════════════╣
+             ║  새 코스 작업 순서:
+             ║  1. snippets/06-risk-reversal.html 열기
+             ║  2. 코스 내용에 맞게 수정
+             ║  3. 수정한 내용을 이 주석 바로 아래에 붙여넣기
+             ╚══════════════════════════════════════════════╝ -->
+
+<!-- Risk Reversal -->
+        <section class="py-20 px-5 relative z-10">
+            <div class="max-w-4xl mx-auto reveal text-center">
+                <h2 class="text-3xl font-black mb-4 tracking-tight break-keep text-gray-900">수업이 끝나도<br>혼자가 아닙니다</h2>
+                <p class="text-base text-gray-600 mb-12 break-keep">배운 것을 실전에 적용할 때 막히는 순간,<br><strong class="text-gray-900">든든한 지원이 이어집니다.</strong></p>
+
+                <div class="grid gap-6 text-left">
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-brand shadow-sm">
+                        <div class="text-3xl mb-4">🔄</div>
+                        <h3 class="font-bold text-lg mb-3 text-gray-900 break-keep">결석하셔도 됩니다 — 다음 기수 100% 무상 보강</h3>
+                        <p class="text-gray-600 text-sm leading-[1.8] break-keep">부담 없이 본업에 집중하세요. 사정이 생겨 놓친 강의는 기수 제한 없이<br>다음 오프라인 수업에서 100% 무상으로 보강받으실 수 있습니다.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-t-2 border-brand shadow-sm">
+                        <div class="text-3xl mb-4">💬</div>
+                        <h3 class="font-bold text-lg mb-3 text-gray-900 break-keep">수료 후에도 연결됩니다 — 단톡방 평생 피드백</h3>
+                        <p class="text-gray-600 text-sm leading-[1.8] break-keep">수업이 끝난 후에도 단체 카톡방에서 가격 전략 관련 이야기를 나눕니다. 메뉴판이 막히거나 가격 인상이 고민될 때 혼자 고민하지 않아도 되는 환경.
+                        <br>그게 장가의 차별점입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- FAQ -->
+        <section class="py-20  px-5  bg-gray-50/50 relative z-10 border-t border-gray-200">
+            <div class="max-w-4xl mx-auto reveal">
+                <h2 class="text-3xl  font-black mb-12  text-center tracking-tight break-keep text-gray-900">
+                    자주 묻는 질문</h2>
+
+                <div class="space-y-4 ">
+                    <div class="glass-card p-5  rounded-xl shadow-sm">
+                        <h3 class="text-base  font-bold text-gray-900 mb-2  leading-[1.4] break-keep">💸 Q. 음식점·카페가 아닌 업종에도 적용되나요?</h3>
+                        <p class="text-brand font-bold text-base mb-2 break-keep">A. 네, 가격 심리학은 업종을 가리지 않습니다.
+                        </p>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">소비자가 가격을 인식하는 원리는 모든 비즈니스에 동일하게 작동합니다. 서비스업, 유통, 제조 등 어느 분야든 수업에서 배운 가격 설계 공식을 그대로 적용할 수 있습니다.</p>
+                    </div>
+
+                    <div class="glass-card p-5  rounded-xl shadow-sm">
+                        <h3 class="text-base  font-bold text-gray-900 mb-2  leading-[1.4] break-keep">📈 Q. 지금 당장 가격을 올리면 손님이 떠나지 않을까요?</h3>
+                        <p class="text-brand font-bold text-base mb-2 break-keep">A. 올리는 방법이 따로 있습니다.</p>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">가격 심리학을 활용하면 손님이 인상을 크게 인지하지 못한 채 객단가를 높이는 것이 가능합니다. 저항 없이 가격을 올리는 구체적인 기법을 단계별로 실습합니다.</p>
+                    </div>
+
+                    <div class="glass-card p-5  rounded-xl shadow-sm">
+                        <h3 class="text-base  font-bold text-gray-900 mb-2  leading-[1.4] break-keep">🗓️ Q. 사정상 결석하면 보강이 가능한가요?</h3>
+                        <p class="text-brand font-bold text-base mb-2 break-keep">A. 네, 다음 기수에서 100% 무상 보강 가능합니다.</p>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">부담 없이 본업에 집중하시고 놓친 주차는 기수 제한 없이 열려있는 다음 오프라인 수업에서 보충하시면 됩니다.</p>
+                    </div>
+
+                    <div class="glass-card p-5  rounded-xl shadow-sm">
+                        <h3 class="text-base  font-bold text-gray-900 mb-2  leading-[1.4] break-keep">🤝 Q. 8주가 끝나면 소통이 끊기나요?</h3>
+                        <p class="text-brand font-bold text-base mb-2 break-keep">A. 단톡방을 통해 평생 피드백을 지원합니다.</p>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">수료 후에도 단체 카카오톡 채널을 통해 가격 전략 관련 질문에 답변드리며 실제 사례와 시장 변화를 실시간으로 공유해 드립니다.</p>
+                    </div>
+
+                    <div class="glass-card p-5  rounded-xl shadow-sm">
+                        <h3 class="text-base  font-bold text-gray-900 mb-2  leading-[1.4] break-keep">💡 Q. 가격을 여러 번 조정했는데 효과가 없었습니다.</h3>
+                        <p class="text-brand font-bold text-base mb-2 break-keep">A. 방향의 문제입니다, 노력의 문제가 아닙니다.</p>
+                        <p class="text-gray-600 text-sm leading-[1.6] break-keep">가격 조정의 실패는 대부분 전략 없이 숫자만 바꿔서입니다. 이 수업은 고객 심리와 경쟁 포지셔닝을 기반으로 한 구조적 가격 설계를 가르칩니다. 방향이 맞으면 결과가 달라집니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="py-16 px-5 bg-white relative z-10 overflow-hidden">
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <p class="text-brand text-sm font-bold uppercase tracking-widest mb-2">개강까지 남은 시간</p>
+                <p class="text-gray-900 text-base font-bold mb-8 break-keep">2026년 6월 15일(월) 오후 3시 · 장가 12기 개강</p>
+
+                <div id="countdown">
+                    <div id="tiles"></div>
+                    <div class="labels">
+                        <li>Days</li>
+                        <li>Hours</li>
+                        <li>Mins</li>
+                        <li>Secs</li>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 text-sm mt-10 break-keep">수강 마감 <strong class="text-gray-900">6월 12일</strong> · 선착순 마감될 수 있습니다</p>
+            </div>
+        </section>
+
+        <style>
+        #countdown {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            background: #1a1a1a;
+            background-image: linear-gradient(to bottom, #1a1a1a, #2a2a2a, #2a2a2a, #1a1a1a);
+            border: 1px solid #111;
+            border-radius: 8px;
+            box-shadow: 0 0 16px rgba(0,0,0,0.7);
+            margin: 0 auto;
+            padding: 20px 0 44px;
+            position: relative;
+        }
+        #countdown:before {
+            content: "";
+            width: 10px;
+            height: 60px;
+            background: #3a3a3a;
+            background-image: linear-gradient(to bottom, #444, #3a3a3a, #3a3a3a, #444);
+            border: 1px solid #111;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            display: block;
+            position: absolute;
+            top: 44px; left: -11px;
+        }
+        #countdown:after {
+            content: "";
+            width: 10px;
+            height: 60px;
+            background: #3a3a3a;
+            background-image: linear-gradient(to bottom, #444, #3a3a3a, #3a3a3a, #444);
+            border: 1px solid #111;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            display: block;
+            position: absolute;
+            top: 44px; right: -11px;
+        }
+        #countdown #tiles {
+            position: relative;
+            z-index: 1;
+        }
+        #countdown #tiles > span {
+            width: 72px;
+            max-width: 72px;
+            font: bold 40px Arial, sans-serif;
+            text-align: center;
+            color: #111;
+            background-color: #ddd;
+            background-image: linear-gradient(to bottom, #bbb, #eee);
+            border-top: 1px solid #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.7);
+            margin: 0 5px;
+            padding: 14px 0;
+            display: inline-block;
+            position: relative;
+        }
+        #countdown #tiles > span:before {
+            content: "";
+            width: 100%;
+            height: 12px;
+            background: #111;
+            display: block;
+            padding: 0 3px;
+            position: absolute;
+            top: 41%; left: -3px;
+            z-index: -1;
+        }
+        #countdown #tiles > span:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background: #eee;
+            border-top: 1px solid #333;
+            display: block;
+            position: absolute;
+            top: 48%; left: 0;
+        }
+        #countdown .labels {
+            width: 100%;
+            height: 25px;
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #countdown .labels li {
+            width: 82px;
+            font: bold 13px Arial, sans-serif;
+            color: #b90e0a;
+            text-shadow: 1px 1px 0 #000;
+            text-align: center;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        @media (max-width: 380px) {
+            #countdown { max-width: 310px; }
+            #countdown #tiles > span { width: 52px; max-width: 52px; font-size: 28px; padding: 10px 0; margin: 0 3px; }
+            #countdown .labels li { width: 58px; font-size: 11px; }
+        }
+        </style>
+
+        <script>
+        var countDownDate = new Date('2026-06-15T15:00:00+09:00').getTime();
+        var tilesEl = document.getElementById('tiles');
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days    = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            tilesEl.innerHTML =
+                '<span>' + pad(days)    + '</span>' +
+                '<span>' + pad(hours)   + '</span>' +
+                '<span>' + pad(minutes) + '</span>' +
+                '<span>' + pad(seconds) + '</span>';
+
+            if (distance < 0) {
+                clearInterval(x);
+                tilesEl.innerHTML = '<span>00</span><span>00</span><span>00</span><span>00</span>';
+            }
+        }, 1000);
+        </script>
+
+                <!-- Section end: Enrollment -->
+        <section id="enrollment"
+            class="py-24 px-5  bg-gradient-to-t from-gray-100 to-white relative z-10 border-t border-gray-200">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12 scroll-reveal">
+                    <p class="text-brand-dark font-bold tracking-widest uppercase mb-2 break-keep">가격이 곧 전략이다</p>
+                    <h2 class="text-3xl  font-black text-gray-900 break-keep">장가 수강안내</h2>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8  border border-gray-200 shadow-xl scroll-reveal">
+                    <div class="grid  gap-10">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-brand-dark font-bold mb-1"><i class="far fa-calendar-alt mr-2"></i> 교육 기간
+                                </p>
+                                <p class="text-gray-900 text-lg font-bold">2026년 6월 15일 ~ 8월 10일</p>
+                                <p class="text-brand-dark text-sm font-bold">7월 6일 휴강</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-dark font-bold mb-1"><i class="far fa-clock mr-2"></i> 교육 시간</p>
+                                <p class="text-gray-900 text-lg font-bold">총 8주 / 매주 월요일 15:00 ~ 17:30</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-dark font-bold mb-1"><i class="fas fa-won-sign mr-2"></i> 교육비</p>
+                                <div class="flex items-center gap-2">
+                                    <p class="text-gray-400 text-base font-medium line-through">3,990,000원</p>
+                                    <p class="text-brand text-lg font-bold">2,460,000원</p>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">※ 등록마감 : 6월 12일</p>
+                                <p class="text-gray-500 text-xs">※ 재수강 50%, 3수강 이후 70% 할인</p>
+                                <p class="text-gray-500 text-xs">※ 계좌이체시 계산서 발급, 카드 할부 가능</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-brand-dark font-bold mb-1"><i class="fas fa-map-marker-alt mr-2"></i> 교육
+                                    장소
+                                </p>
+                                <p class="text-gray-900 font-bold break-keep">서울 강남구 삼성로 104길 17 대모빌딩 4층 김유진아카데미</p>
+                                <ul class="text-sm text-gray-500 mt-2 space-y-1">
+                                    <p><span class="bg-green-700 text-white text-xs px-1 rounded mr-1">2호선</span> 삼성역 5번
+                                        출구
+                                        도보 13분</p>
+                                    <p><span class="bg-yellow-600 text-white text-xs px-1 rounded mr-1">9호선</span> 삼성중앙역
+                                        5번
+                                        출구 도보 5분</p>
+                                </ul>
+                            </div>
+                            <div class="w-full  h-60  rounded-lg overflow-hidden border border-gray-200">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.8!2d127.05!3d37.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZwgMTA06ri4IDE3!5e0!3m2!1sko!2skr!4v1234567890"
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                    class="grayscale hover:grayscale-0 transition-all duration-400">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class=" bg-gray-50 p-6 rounded-xl border border-gray-200 flex flex-row items-center gap-4">
+                            <div class="bg-brand text-white p-3 rounded-full shrink-0 shadow-md">
+                                <i class="fas fa-gift text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-900 font-bold mb-1 break-keep">추천인 & 등록인 모두 5% 적립!</p>
+                                <p class="text-sm text-gray-600 break-keep">김유진 아카데미의 모든 수업에서 사용 가능합니다.<br>(추천인은 등록자 기재인
+                                    한정,
+                                    타 혜택 중복 불가)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="mt-12 flex flex-col items-center space-y-6">
+                    <!-- 
+                     [수정됨] 버튼을 a 태그로 변경하여 링크 이동 기능 추가
+                -->
+                    <a href="https://naver.me/xrzSvoi3" target="_blank" onclick="fbq('track', 'Lead');"
+                        class="inline-block text-center w-full  bg-brand hover:bg-brand-light text-white hover:text-brand font-black py-5 px-12  rounded-full text-2xl shadow-glow transition-all transform hover:scale-105 animate-pulse no-underline break-keep">
+                        장가 12기 신청하기
+                    </a>
+
+                    <!-- 하단 버튼 -->
+                    <div
+                        class="flex flex-col items-center gap-6 max-w-md mx-auto border-t border-gray-200 pt-12 w-full">
+                        <a href="https://kyjacademy.github.io/offline_course_list" target="_blank"
+                            class="w-full px-8 py-4 rounded-xl border border-gray-300 text-gray-600 hover:text-brand hover:border-brand hover:bg-brand/5 transition-all font-bold flex items-center justify-center gap-3 group break-keep bg-white">
+                            <i class="fas fa-book-open text-gray-400 group-hover:text-brand transition-colors"></i>
+                            다른 강의 둘러보기
+                        </a>
+
+                        <a href="https://m.site.naver.com/1zqiL" target="_blank"
+                            class="w-full rounded-xl border border-gray-300 hover:border-brand transition-all overflow-hidden group bg-white">
+                            <div class="flex items-center gap-4 p-4">
+                                <div
+                                    class="w-28 h-28   shrink-0 bg-gray-100 rounded-lg overflow-hidden relative border border-gray-200">
+                                    <img src="image/ALLINONE_PACKAGE_IMAGE.jpg"
+                                        onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%23f9fafb\'/%3E%3C/svg%3E';"
+                                        alt="올인원 패키지" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 text-left">
+                                    <p
+                                        class="text-gray-900 font-bold group-hover:text-brand transition-colors break-keep">
+                                        올인원 패키지</p>
+                                    <p class="text-sm text-gray-500 break-keep">모든 강의를 한 번에</p>
+                                </div>
+                                <i
+                                    class="fas fa-chevron-right text-gray-400 group-hover:text-brand transition-colors"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-50 py-8 text-center text-gray-500 text-sm border-t border-gray-200 relative z-10">
+            <p>Copyright © 김유진 아카데미. All rights reserved.</p>
+        </footer>
+
+        <!-- Scroll Animation Script -->
+        <script>
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal, .scroll-reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 100;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active", "visible");
+                    }
+                }
+            }
+            window.addEventListener("scroll", reveal);
+            // Trigger on load
+            reveal();
+
+            // General Slideshow
+            document.addEventListener('DOMContentLoaded', function () {
+                const sliders = document.querySelectorAll('.slider-container');
+                sliders.forEach(slider => {
+                    const slides = slider.querySelectorAll('.slide');
+                    if (slides.length > 1) {
+                        let currentSlide = 0;
+                        setInterval(() => {
+                            slides[currentSlide].classList.remove('opacity-100');
+                            slides[currentSlide].classList.add('opacity-0');
+                            currentSlide = (currentSlide + 1) % slides.length;
+                            slides[currentSlide].classList.remove('opacity-0');
+                            slides[currentSlide].classList.add('opacity-100');
+                        }, 3000);
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>
