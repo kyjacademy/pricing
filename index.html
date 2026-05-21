@@ -107,6 +107,29 @@
   .border-t { border-top-width: 1px; border-top-style: solid; }
   .gap-2 { gap: 8px; }
   .mt-2 { margin-top: 8px; }
+  
+  /* 베스트셀러 책 효과 */
+  .book-card {
+    width: 80px; height: 112px;
+    background: #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  .book-card:hover { transform: translateY(-8px); }
+
+  .book-card.new {
+    width: 96px; height: 128px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+    border: 2px solid var(--blood);
+    position: relative;
+    z-index: 10;
+  }
+  .book-card.new:hover { transform: translateY(-16px); }
+
+  .book-card img { width: 100%; height: 100%; object-fit: cover; }
   :root {
     --ink: #0a0a0a;
     --paper: #f5efe2;
@@ -244,13 +267,13 @@
   .hero-title .underline::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -6px;
-    height: 8px;
+    left: -2px;
+    right: -2px;
+    bottom: 2px;
+    height: 20px;
     background: var(--gold);
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   /* HERO TAGLINE — 메인과 바디 중간 사이즈 */
@@ -1599,12 +1622,18 @@
       <span class="hero-badge">8주 실전 과정</span>
     </div>
 
-    <!-- 메인 헤드라인: 사장님은 10% 더 받을 수 있었습니다 -->
-    <h1 class="hero-title">
-      <span class="line1">사장님은</span>
-      <span class="line2"><span class="underline">10% 더</span> 받을 수</span>
-      <span class="line1">있었습니다.</span>
-    </h1>
+    <!-- 메인 헤드라인 및 책 이미지 (Flex) -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 36px; padding: 0 10px;">
+      <div style="position: relative; flex-shrink: 0;">
+        <div style="position: absolute; top: -6px; left: -6px; background: var(--gold); color: #000; font-size: 11px; padding: 4px 8px; font-weight: bold; border-radius: 2px; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">베스트셀러</div>
+        <img src="image/book_4.jpg" alt="책 이미지" style="width: 120px; height: auto; object-fit: contain; box-shadow: 2px 4px 16px rgba(0,0,0,0.1);">
+      </div>
+      <h1 class="hero-title" style="margin-bottom: 0; text-align: left;">
+        <span class="line1">사장님은</span>
+        <span class="line2"><span class="underline">10% 더 받을 수</span></span>
+        <span class="line1">있었습니다.</span>
+      </h1>
+    </div>
 
     <!-- 중간 사이즈 부제 -->
     <p class="hero-tagline">장사의 핵심은 가격입니다.</p>
@@ -1613,10 +1642,10 @@
     <div class="hero-sub-block">
       <p class="empathy">
         가격을 올리면 손님이 떠날까봐 망설이고 계시죠? <strong>그 마음, 잘 압니다.</strong><br>
-        그런데 그 망설임이 매달 사장님 가게의 이익을 조용히 도려내고 있습니다.
+        그런데 그 망설임이 매달 사장님 가게의 이익을<br>조용히 도려내고 있습니다.
       </p>
       <p class="truth">
-        새벽부터 밤까지 쏟아부은 시간과 정성과 노하우 ㅡ<br>
+        새벽부터 밤까지 쏟아부은 시간과 정성과 노하우<br>
         이제 그 가치를 <strong>정당하게 돌려받을 때</strong>입니다.
       </p>
     </div>
@@ -1670,9 +1699,9 @@
 
     <div class="why-pricing-intro">
       <p>
-        매출도, 마케팅도, 인테리어도 ㅡ 모두 중요합니다.
-        하지만 그 모든 것을 정당한 이익으로 바꿔주는 단 하나의 지렛대는
-        <strong>가격</strong>입니다.
+        매출도, 마케팅도, 인테리어도  모두 중요합니다.
+        <br>하지만 그 모든 것을 정당한 이익으로 바꿔주는 
+        <br>단 하나의 지렛대는<strong>가격</strong>입니다.
       </p>
     </div>
 
@@ -1680,22 +1709,25 @@
 
       <div class="why-cell">
         <div class="why-num">01</div>
-        <h3>시장을 장악하는<br>가격 전략</h3>
+        <h3>시장을 장악하는 가격 전략</h3>
         <div class="why-lead">수익률을 극대화하는 가격 책정법으로 브랜드 가치를 높이세요.</div>
         <div class="why-detail">
-          가격은 곧 포지셔닝입니다. 같은 메뉴라도 <strong>'어떤 가게'로 보이느냐</strong>는 가격이 결정합니다.
-          시장에서 흔들리지 않는 위치를 차지하는 가격 설계 ㅡ 11기까지 수강하신 분들의 브랜드에서 검증된 공식입니다.
+          가격은 곧 포지셔닝입니다. 
+	<br>같은 메뉴라도 <strong>'어떤 가게'로 보이느냐</strong>는 가격이 결정합니다.
+          시장에서 흔들리지 않는 위치를 차지하는 가격 설계 
+	<br>11기까지 수강하신 분들의 브랜드에서 검증된 공식입니다.
         </div>
       </div>
 
       <div class="why-cell">
         <div class="why-num">02</div>
-        <h3>불황에도 살아남는<br>가격 전략</h3>
+        <h3>불황에도 살아남는 가격 전략</h3>
         <div class="why-lead">경제 위기에도 흔들리지 않는 실전 가격 정책.</div>
         <div class="why-detail">
-          매출이 빠져도 이익이 커지는 구조는 존재합니다. 부천집 임동훈 대표는 코로나로
-          매출이 20% 빠진 와중에도 <strong>순이익이 연 1,623만 원 더 늘었습니다.</strong>
-          위기일수록 가격이 답입니다.
+          매출이 빠져도 이익이 커지는 구조는 존재합니다. 
+          <br>부천집 임동훈 대표는 코로나로매출이 20% 빠진 와중에도
+          <br><strong>순이익이 연 1,623만 원 더 늘었습니다.</strong>
+          <br>위기일수록 가격이 답입니다.
         </div>
       </div>
 
@@ -1704,9 +1736,11 @@
         <h3>검증된 실전 노하우</h3>
         <div class="why-lead">현장에서 증명된, 즉시 적용 가능한 가격 전략.</div>
         <div class="why-detail">
-          이론이 아닙니다. 1기부터 11기까지 ㅡ 막창 1,000원 인상 후 불만 손님 단 1명,
-          메뉴 이름 하나 바꿔 가격저항 0%, 비수기 7월에 월 1억 돌파.
-          <strong>책상이 아닌 매장에서 만들어진 노하우</strong>를 그대로 전수해 드립니다.
+          이론이 아닙니다. 1기부터 11기까지  
+          <br>막창 1,000원 인상 후 불만 손님 단 1명,
+          <br>메뉴 이름 하나 바꿔 가격저항 0%,
+          <br>비수기 7월에 월 1억 돌파.
+          <br><strong>책상이 아닌 매장에서 만들어진 노하우</strong>를 그대로 전수해 드립니다.
         </div>
       </div>
 
@@ -1715,9 +1749,10 @@
         <h3>내 브랜드의<br>최적 가격 찾기</h3>
         <div class="why-lead">고객 만족과 수익성을 동시에 잡는 가격 공식.</div>
         <div class="why-detail">
-          정답은 옆집에 없습니다. 8주의 마지막, 본인 가게 가격표를 가져오시면
+          정답은 옆집에 없습니다.
+          <br>8주의 마지막, 본인 가게 가격표를 가져오시면
           <strong>김유진 사부가 직접 1:1로 진단</strong>해 드립니다. 그날 바로 적용 가능한
-          '나만의 최적 가격표'를 완성해 손에 쥐고 돌아가시게 됩니다.
+          <br>'나만의 최적 가격표'를 완성해 손에 쥐고 돌아가시게 됩니다.
         </div>
       </div>
 
@@ -1732,8 +1767,10 @@
     <div class="empathy-intro">
       <p>
         새벽 6시에 나와 장을 보고 밤 10시가 넘도록 가게에 매달려 누구보다 열심히 일을 합니다.
-        그런데도 통장은 늘 그대로입니다. 왜일까요? 매출의 문제도, 노력의 문제도 아닙니다.
-        <strong>가격을 어떻게 받아야 할지, 아무도 제대로 가르쳐 드리지 않았기 때문</strong>입니다.
+          <br>그런데도 통장은 늘 그대로입니다.
+          <br>왜일까요? 매출의 문제도, 노력의 문제도 아닙니다.
+          <br><strong>가격을 어떻게 받아야 할지 
+          <br>아무도 제대로 가르쳐 드리지 않았기 때문</strong>입니다.
       </p>
     </div>
 
@@ -1745,41 +1782,45 @@
         </div>
         <div class="empathy-a">
           장가를 수강하신 사장님들 중 막창 1,000원을 올린 분은
-          3개월 동안 불만을 제기한 손님이 <strong>단 한 명</strong>뿐이었습니다.
-          두려움이 사라지는 순간 ㅡ 비로소 장사가 달라집니다.
+          <br>3개월 동안 불만을 제기한 손님이 <strong>단 한 명</strong>뿐이었습니다.
+          <br>두려움이 사라지는 순간  비로소 장사가 달라집니다.
         </div>
       </div>
 
       <div class="empathy-row">
         <div class="empathy-q">
-          <span class="quote-mark">"</span>원가는 올랐는데<br>가격은 그대로입니다.<span class="quote-mark">"</span>
+          <span class="quote-mark">"</span>원가는 올랐는데 가격은 그대로입니다.<span class="quote-mark">"</span>
         </div>
         <div class="empathy-a">
           재료값, 인건비, 임대료, 배달비 다 올랐습니다.
-          오직 사장님의 가격만 그대로입니다. 참는 게 미덕이 아닙니다.
-          <strong>그 인내의 대가는 매달 사장님 통장에서 빠져나가고 있습니다.</strong>
+          <br>오직 사장님의 가격만 그대로입니다.
+          <br>참는 게 미덕이 아닙니다.
+          <br><strong>그 인내의 대가는 매달 사장님 통장에서 빠져나가고
+          <br>있습니다.</strong>
         </div>
       </div>
 
       <div class="empathy-row">
         <div class="empathy-q">
-          <span class="quote-mark">"</span>열심히 하는데<br>남는 게 없습니다.<span class="quote-mark">"</span>
+          <span class="quote-mark">"</span>열심히 하는데 남는 게 없습니다.<span class="quote-mark">"</span>
         </div>
         <div class="empathy-a">
           매출이 문제가 아닙니다. <strong>가격 구조</strong>가 문제입니다.
-          매출이 20% 빠졌는데도 순이익은 연 1,623만 원이 더 생긴 사장님이 있습니다.
-          손님 수가 줄어도 이익이 커지는 구조 ㅡ 그것을 8주 만에 만들어 드립니다.
+          <br>매출이 20% 빠졌는데도 순이익은 연 1,623만 원이 더 생긴 사장님이 있습니다.
+          손님 수가 줄어도 이익이 커지는 구조
+          <br>그것을 8주 만에 만들어 드립니다.
         </div>
       </div>
 
       <div class="empathy-row">
         <div class="empathy-q">
-          <span class="quote-mark">"</span>서비스 안 주면<br>손님한테 미안합니다.<span class="quote-mark">"</span>
+          <span class="quote-mark">"</span>서비스 안 주면 손님한테 미안합니다.<span class="quote-mark">"</span>
         </div>
         <div class="empathy-a">
           공짜로 퍼주시는 그 마음, 고객도 알아줄까요?
-          <strong>가격표가 없는 서비스에 고객은 감동하지 않습니다.</strong>
-          5,000원짜리 '혜택'으로 만드시는 순간, 고객은 감동하고 단골이 됩니다.
+          <br><strong>가격표가 없는 서비스에 고객은 감동하지 않습니다.</strong>
+          <br>5,000원짜리 '혜택'으로 만드시는 순간, 고객은 감동하고
+          <br>단골이 됩니다.
         </div>
       </div>
 
@@ -2241,19 +2282,19 @@
       <div class="case-row">
         <div>
           <div class="case-num">01</div>
-          <h3 class="case-title">안 팔리는 메뉴가<br>돈을 번다</h3>
+          <h3 class="case-title">안 팔리는 메뉴가 돈을 번다</h3>
           <div class="case-keywords">
             <span class="kw">디코이 효과</span>
             <span class="kw">메뉴판 설계</span>
           </div>
         </div>
         <div class="case-content">
-          <p class="lead">"메뉴판 구조가 스스로 고객을 설득해 돈을 쓸어 담는구나!"</p>
+          <p class="lead">"메뉴판 구조가 스스로 고객을 설득해<br> 돈을 쓸어 담는구나!"</p>
           <p>
             모든 메뉴가 잘 팔려야 한다는 고정관념은 내려놓으십시오.
-            주력 메뉴 옆에 일부러 <strong>'디코이(미끼)'</strong>를 심어두시면
-            고객은 말 한마디 없이도 스스로 가장 비싼 시그니처를 선택합니다.
-            제비원식당 박진현 대표는 이 한 줄로 가격저항을 0%로 만드셨습니다.
+            <br>주력 메뉴 옆에 일부러 <strong>'디코이(미끼)'</strong>를 심어두시면
+            <br>고객은 말 한마디 없이도 스스로 가장 비싼 시그니처를 선택합니다.
+            <br>제비원식당 박진현 대표는 이 한 줄로 가격저항을 0%로 만드셨습니다.
           </p>
         </div>
       </div>
@@ -2270,11 +2311,11 @@
           </div>
         </div>
         <div class="case-content">
-          <p class="lead">"9,000원으로 올렸더니 오히려 손님들이 '이 집은 합리적이다'라고 합니다"</p>
+          <p class="lead">"9,000원으로 올렸더니 오히려 손님들이<br>'이 집은 합리적이다'라고 합니다"</p>
           <p>
-            가격은 절대값이 아닙니다. 메뉴판 맨 위에 <strong>'송혜교 메뉴'</strong>를 배치하시는 순간,
-            고객의 뇌에 기준점이 박힙니다. 그 아래 주력 메뉴는 자연스럽게 '<strong>합리적 선택</strong>'이 됩니다.
-            정당한 가격을 받으시는 가장 빠른 공식입니다.
+            <br>가격은 절대값이 아닙니다. 메뉴판 맨 위에 <strong>'송혜교 메뉴'</strong>를 배치하시는 순간, 고객의 뇌에 기준점이 박힙니다. 
+            <br>그 아래 주력 메뉴는 자연스럽게 '<strong>합리적 선택</strong>'이 됩니다.
+            <br>정당한 가격을 받으시는 가장 빠른 공식입니다.
           </p>
         </div>
       </div>
@@ -2291,11 +2332,11 @@
           </div>
         </div>
         <div class="case-content">
-          <p class="lead">"가격표를 붙이고 조건부로 드렸더니 리뷰와 재방문이 폭발했습니다"</p>
+          <p class="lead">"가격표를 붙이고 조건부로 드렸더니 <br>리뷰와 재방문이 폭발했습니다"</p>
           <p>
             오늘도 계란 프라이, 찌개, 사리를 공짜로 퍼주고 계시지 않으십니까?
-            <strong>가격표 없는 서비스는 가치가 없습니다.</strong>
-            5,000원 가격표를 먼저 붙이시고 '혜택'이 될 때,
+            <br><strong>가격표 없는 서비스는 가치가 없습니다.</strong>
+            <br>5,000원 가격표를 먼저 붙이시고 '혜택'이 될 때,
             고객은 비로소 감동받고 단골이 됩니다.
           </p>
         </div>
@@ -2311,7 +2352,8 @@
     <div class="curr-intro">
       <p>
         이론은 짧고, 실습은 깁니다. 마지막 8강에는 사장님 가게의 가격표를 가져오십시오.
-        직접 설계하시면 김사부가 진단하고 그날 바로 적용 가능한 <strong>나만의 가격표</strong>를 손에 쥐고 돌아가시게 됩니다.
+        직접 설계하시면 김사부가 
+         <br>진단하고 그날 바로 적용 가능한 <strong>나만의 가격표</strong>를 손에 쥐고 돌아가시게 됩니다.
       </p>
     </div>
 
@@ -2343,7 +2385,7 @@
         <ul class="topics">
           <li>가격을 극대화하는 'C.L.A.S.S' 공식</li>
           <li>패키지 가격 구성법</li>
-          <li>할인의 신 ㅡ 깎지 않고 깎아주기</li>
+          <li>할인의 신  깎지 않고 깎아주기</li>
         </ul>
       </div>
 
@@ -2371,7 +2413,7 @@
         <span class="week">WEEK 06</span>
         <h3>가격 포지셔닝</h3>
         <ul class="topics">
-          <li>디코이(미끼) 전략 ㅡ 안 팔려도 돈 버는 메뉴</li>
+          <li>디코이(미끼) 전략  안 팔려도 돈 버는 메뉴</li>
           <li>리베이트 전략</li>
           <li>가격 극대화 전략</li>
         </ul>
@@ -2542,12 +2584,53 @@
         </div>
       </div>
     </div>
+
+    <!-- Best Seller 책 리스트 -->
+    <div class="glass-card" style="padding: 24px; border-radius: 24px; margin-top: 40px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+      <div class="sec-tag" style="text-align: center; margin-bottom: 20px; color: var(--gold);">Best Seller</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: flex-end;">
+        <div class="book-card" style="transition-delay:0s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_1.jpg" alt="한국형 장사의 신" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.05s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_2.jpg" alt="장사는 전략이다" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.1s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_3.jpg" alt="장사 이제는 콘텐츠다" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.15s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_4.jpg" alt="당신의 가격은 틀렸습니다" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.2s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_5.jpg" alt="장사는 전략이다 RED" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.25s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_7.jpg" alt="당신의 가격은 틀렸습니다(중문)" onerror="this.style.display='none'">
+        </div>
+        <div class="book-card" style="transition-delay:0.3s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <img src="image/book_8.jpg" alt="장사 이제는 콘텐츠다(중문)" onerror="this.style.display='none'">
+        </div>
+        <!-- 신간 강조 -->
+        <div class="book-card new" style="transition-delay:0.35s">
+          <div style="position: absolute; top: 0; left: 0; background: var(--gold); color: #000; font-size: 9px; padding: 2px 4px; font-weight: bold; z-index: 10;">베스트셀러</div>
+          <div style="position: absolute; top: 0; right: 0; background: var(--blood); color: #fff; font-size: 10px; padding: 2px 6px; font-weight: bold; z-index: 10;">NEW</div>
+          <img src="image/book_6.jpg" alt="페이머스" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============ BENEFITS ============ -->
   <section class="benefits">
     <div class="sec-tag">AFTER LECTURE</div>
-    <h2 class="sec-title">수업이 끝나도<br><span class="red">혼자가 아닙니다.</span></h2>
+    <h2 class="sec-title">수업이 끝나도 <span class="red">혼자가 아닙니다.</span></h2>
 
     <div class="ben-grid">
 
@@ -2555,8 +2638,9 @@
         <div class="ben-icon">01</div>
         <h4>결석하셔도 됩니다<br>다음 기수 100% 무상 보강</h4>
         <p>
-          부담 없이 본업에 집중하십시오. 사정이 생겨 놓치신 강의는
-          <strong>기수 제한 없이</strong> 다음 오프라인 수업에서 100% 무상으로 보강받으실 수 있습니다.
+          부담 없이 본업에 집중하십시오. 
+          <br>사정이 생겨 놓치신 강의는 <strong>기수 제한 없이</strong> 다음 오프라인
+          <br>수업에서 100% 무상으로 보강받으실 수 있습니다.
         </p>
       </div>
 
@@ -2566,7 +2650,8 @@
         <p>
           수료 후에도 단체 카톡방에서 가격 전략 이야기를 나눕니다.
           메뉴판이 막히거나 가격 인상이 고민되실 때
-          <strong>혼자 고민하지 않으셔도 되는 환경</strong>. 그게 장가의 차별점입니다.
+          <br><strong>혼자 고민하지 않으셔도 되는 환경</strong>.
+          <br>그게 장가의 차별점입니다.
         </p>
       </div>
 
@@ -2575,7 +2660,7 @@
         <h4>나만의 가격표<br>당일 완성</h4>
         <p>
           8강 현장 실습에서 본인 가게에 맞는 가격표를 직접 완성하십니다.
-          김유진 사부의 <strong>1:1 진단</strong>까지 받으시고 ㅡ 수업 당일부터 적용 가능합니다.
+          김유진 사부의 <strong>1:1 진단</strong>까지 받으시고  수업<br>당일부터 적용 가능합니다.
         </p>
       </div>
 
@@ -2584,8 +2669,8 @@
         <h4>재수강 50% / 3수강 70%<br>할인 혜택</h4>
         <p>
           더 깊이 배우고 싶으실 때, 부담 없이 다시 들으실 수 있습니다.
-          <strong>재수강 50%, 3수강 이후 70% 할인</strong>이 적용됩니다.
-          추천인 & 등록인 모두 5% 적립 혜택까지 드립니다.
+          <br><strong>재수강 50%, 3수강 이후 70% 할인</strong>이 적용됩니다.
+          <br>추천인 & 등록인 모두 5% 적립 혜택까지 드립니다.
         </p>
       </div>
 
@@ -2601,32 +2686,39 @@
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 음식점·카페가 아닌 업종에도 적용되나요?</div>
-        <div class="faq-a"><strong>네, 가격 심리학은 업종을 가리지 않습니다.</strong> 소비자가 가격을 인식하는 원리는 모든 비즈니스에 동일하게 작동합니다. 서비스업, 유통, 제조, 미용, 교육, 1인 사업자 ㅡ 어느 분야든 수업에서 배운 가격 설계 공식을 그대로 적용할 수 있습니다.</div>
+        <div class="faq-a"><strong>네, 가격 심리학은 업종을 가리지 않습니다.</strong> 소비자가 가격을 인식하는 원리는 모든 비즈니스에 동일하게 작동합니다.
+              <br>서비스업, 유통, 제조, 미용, 교육, 1인 사업자 어느 분야든
+              <br>수업에서 배운 가격 설계 공식을 그대로 적용할 수 있습니다.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 지금 당장 가격을 올리면 손님이 떠나지 않을까요?</div>
-        <div class="faq-a">올리는 방법이 따로 있습니다. 가격 심리학을 활용하면 손님의 저항 없이 객단가를 높이는 것이 가능합니다. <strong>막창 1,000원을 올린 후 3개월간 불만 손님은 단 한 명</strong>이었습니다. 저항 없이 가격을 올리는 구체적인 기법을 단계별로 실습합니다.</div>
+        <div class="faq-a">올리는 방법이 따로 있습니다. 가격 심리학을 활용하면<br>손님의 저항 없이 객단가를 높이는 것이 가능합니다. <strong>막창 1,000원을 올린 후 3개월간 불만 손님은 단 한 명</strong>이었습니다. 저항 없이 가격을 올리는 구체적인 기법을 단계별로 실습합니다.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 사정상 결석하면 보강이 가능한가요?</div>
-        <div class="faq-a">네, 다음 기수에서 <strong>100% 무상 보강</strong> 가능합니다. 부담 없이 본업에 집중하시고, 놓치신 주차는 기수 제한 없이 열려있는 다음 오프라인 수업에서 보충하시면 됩니다.</div>
+        <div class="faq-a">네, 다음 기수에서 <strong>100% 무상 보강</strong> 가능합니다. 
+	<br>부담 없이 본업에 집중하시고, 놓치신 주차는 기수 제한 없이 열려있는 다음 오프라인 수업에서 보충하시면 됩니다.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 가격을 여러 번 조정했는데 효과가 없었습니다.</div>
-        <div class="faq-a"><strong>방향의 문제이지, 노력의 문제가 아닙니다.</strong> 가격 조정의 실패는 대부분 전략 없이 숫자만 바꿔서 발생합니다. 이 수업은 고객 심리와 경쟁 포지셔닝을 기반으로 한 '구조적 가격 설계'를 가르칩니다. 방향이 맞으면 결과가 달라집니다.</div>
+        <div class="faq-a"><strong>방향의 문제이지, 노력의 문제가 아닙니다.</strong>
+	<br>가격 조정의 실패는 대부분 전략 없이 숫자만 바꿔서 발생합니다.이 수업은 고객 심리와 경쟁 포지셔닝을 기반으로 한
+	<br>'구조적 가격 설계'를 가르칩니다. 방향이 맞으면 결과가 달라집니다.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 책을 읽었는데도 수업이 필요한가요?</div>
-        <div class="faq-a">책은 이론, 수업은 <strong>현장 실습</strong>입니다. 책에 담을 수 없는 사례, 즉석 진단, 본인 가게 가격표 1:1 컨설팅까지 ㅡ 11기까지의 수강생 다수가 "책을 다시 읽게 됐다"고 말씀하십니다.</div>
+        <div class="faq-a">책은 이론, 수업은 <strong>현장 실습</strong>입니다. 책에 담을 수 없는 사례, 즉석 진단, 본인 가게 가격표 1:1 컨설팅까지  11기까지의<br>수강생 다수가 "책을 다시 읽게 됐다"고 말씀하십니다.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q"><span class="q-mark">Q.</span> 재수강 할인이 있나요?</div>
-        <div class="faq-a"><strong>재수강은 50%, 3수강 이후는 70% 할인</strong>이 적용됩니다. 계좌이체 시 계산서 발급 가능하고, 카드 할부도 가능합니다. 추천인과 등록인 모두에게 5%의 적립 혜택도 함께 드립니다.</div>
+        <div class="faq-a"><strong>재수강은 50%, 3수강 이후는 70% 할인</strong>이 적용됩니다.
+	<br>계좌이체 시 계산서 발급 가능하고 카드 할부도 가능합니다.
+	<br>추천인과 등록인 모두에게 5%의 적립 혜택도 함께 드립니다.</div>
       </div>
 
     </div>
@@ -2645,7 +2737,7 @@
       </div>
       <div class="ml-line2">
         방법을 몰랐던 것은 사장님 잘못이 아닙니다.<br>
-        하지만 지금 알게 되셨다면, <strong>다음 한 걸음은 사장님의 선택입니다.</strong>
+        하지만 지금 알게 되셨다면<br><strong>다음 한 걸음은 사장님의 선택입니다.</strong>
       </div>
     </div>
 
